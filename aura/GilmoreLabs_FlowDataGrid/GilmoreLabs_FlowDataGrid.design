@@ -1,0 +1,11 @@
+<design:component label="Datagrid Pack - Datatable">
+   <design:attribute name="lstIds" label="1: ID List" description="A text array containing the IDs of the records you would like to display in the table." required="true" />
+   <design:attribute name="strObjectName" label="2: Object API Name" description="The Object API name being displaying in the table" required="true" />
+   <design:attribute name="strFields" label="3: Field API Names" description="A comma seperated list of the field API names to display in the table" required="true" />
+   <design:attribute name="strObjectLink" label="6: Specify which field will open the record in the gridview. Leave blank for none." />
+    <design:attribute name="lstpreSelectedIds" label="7: Pre-Selected Rows" description="A text array containing the IDs of the records you would like pre-selected in the table" />
+   <design:attribute name="lstSelectedIds" label="8: Selected Ids (Output)" description="The records selected by the user can be saved to an output array of Ids"/>
+    <design:attribute name="firstSelectedId" label="9: First Selected Id (Output)" description="The first record selected by the user can be saved to an output text variable (Useful if only allowing a single selection)"/>
+   <design:attribute name="maxRowSelection" label="5: Maximum Select Rows" description="The maximum number of rows the user can select from the table. For single selection, set to 1. For unlimited, set to -1." required="true"/>
+   <design:attribute name="maxRecords" label="4: Maximum Records" description="The maximum number of records to show in the gridview. For unlimited, set to -1." required="true"/>
+</design:component>

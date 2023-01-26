@@ -1,0 +1,37 @@
+<aura:component access="global" implements="lightning:availableForFlowScreens" controller="GilmoreLabs_FlowMapDataGridController">
+    <aura:attribute name="lstIds" type="String[]"/>
+    <aura:attribute name="lstpreSelectedIds" type="String[]"/>
+    <aura:attribute name="strObjectName" type="String" />
+    
+    <aura:attribute name="strTitleField" type="String" />
+    <aura:attribute name="strLatField" type="String" />
+    <aura:attribute name="strLngField" type="String" />
+    <aura:attribute name="strDescription" type="String" />
+    
+    <aura:attribute name="lstSelectedIds" type="String[]"/>
+    <aura:attribute name="firstSelectedId" type="String"/>
+    
+    <aura:attribute name="selectedRowsCount" type="Integer" default="0"/>
+    <aura:attribute name="maxRowSelection" type="Integer" default="-1"/>
+    
+    <aura:attribute name="objs" type="Object[]"/>
+    <aura:registerEvent name="objectsLoaded" type="c:GilmoreLabs_MapObjectsLoaded"/>
+    <aura:registerEvent name="objectSelected" type="c:GilmoreLabs_MapObjectsSelected"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:GilmoreLabs_MapObjectsSelected" action="{!c.mapObjectSelected}"/>
+    <div class="parent">
+        <div class="column map">
+            <c:GilmoreLabs_FlowMap/>
+        </div>
+        <div class="column beachlist">
+            <aura:if isTrue="{!empty(v.objs)}" >
+                No Items found...
+            </aura:if>
+            <ul>
+                <aura:iteration items="{!v.objs}" var="obj">
+                    <c:GilmoreLabs_FlowMapListItem obj="{!obj}" selectedRowsCount="{!v.selectedRowsCount}" maxRowSelection="{!v.maxRowSelection}"/>
+                </aura:iteration>
+            </ul>
+        </div>
+    </div>
+</aura:component>

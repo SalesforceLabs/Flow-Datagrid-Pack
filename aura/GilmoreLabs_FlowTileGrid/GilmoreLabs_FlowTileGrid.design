@@ -1,0 +1,9 @@
+<design:component label="Datagrid Pack - Tiles">
+    <design:attribute name="tileSize" label="1: Tile Size" description="Valid values: small, medium, large" datasource="small,medium,large" required="true"/>
+    <design:attribute name="lstInput" label="2: Item List" description="A text collection containing the rich html content to display on the tiles. Optionally, assign an id to save to the item by putting it between two | tags inside a hidden div" required="true" />
+   <design:attribute name="multiSelection" label="3: MultiSelection" description="Allows the user to select multiple tiles" />
+    <design:attribute name="preSelectedItems" label="4: Pre-Selected Tiles" description="Allows the user to select multiple tiles" />
+    <design:attribute name="lstSelectedItems" label="5: Selected Items (Output)" description="The items selected by the user can be saved to an output text collection"/>
+    <design:attribute name="firstSelectedItem" label="6: First Selected Item (Output)" description="The first item selected by the user can be saved to an output text variable (Useful if only allowing a single selection)"/>
+   
+</design:component>

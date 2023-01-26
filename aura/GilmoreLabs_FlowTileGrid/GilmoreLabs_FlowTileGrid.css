@@ -1,0 +1,9 @@
+.THIS .glabstile  {
+    border:none;
+    background-color:transparent;
+    outline: none;
+}
+
+.THIS .glabstile:hover {
+    background-color:transparent;
+}

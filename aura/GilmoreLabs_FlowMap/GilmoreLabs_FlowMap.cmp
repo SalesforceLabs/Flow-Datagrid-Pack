@@ -1,0 +1,13 @@
+<aura:component access="global">
+    <aura:attribute name="map" type="Object"/>
+    <aura:attribute name="theMarkers" type="Object[]"/>
+    <aura:handler event="c:GilmoreLabs_MapObjectsLoaded" action="{!c.objectsLoaded}"/>
+    <aura:handler event="c:GilmoreLabs_MapObjectsSelected" action="{!c.mapObjectSelected}"/>
+    
+    
+    <ltng:require styles="{!$Resource.GilmoreLabs_leaflet + '/leaflet.css'}"
+        scripts="{!$Resource.GilmoreLabs_leaflet + '/leaflet.js'}"
+        afterScriptsLoaded="{!c.jsLoaded}" />
+    <div id="map" style="height:400px"></div>
+    
+</aura:component>

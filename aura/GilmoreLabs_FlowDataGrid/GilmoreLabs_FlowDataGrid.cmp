@@ -1,0 +1,48 @@
+<aura:component access="global" implements="lightning:availableForFlowScreens" controller="GilmoreLabs_FlowDataGridController">
+    <aura:attribute name="lstIds" type="String[]"/>
+    <aura:attribute name="lstpreSelectedIds" type="String[]"/>
+    <aura:attribute name="strObjectName" type="String" />
+    <aura:attribute name="strFields" type="String" />
+    <aura:attribute name="strObjectLink" type="String" />
+    <aura:attribute name="lstSelectedIds" type="String[]"/>
+    <aura:attribute name="firstSelectedId" type="String"/>
+    
+    <!-- attributes -->
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="selectedRowsCount" type="Integer" default="0"/>
+    <aura:attribute name="maxRowSelection" type="Integer" default="-1"/>
+    <aura:attribute name="maxRecords" type="Integer" default="-1"/>
+    <aura:attribute name="Spinner" type="boolean" default="true"/> 
+    
+    <!-- handlers-->
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    
+    <!-- the container element determine the height of the datatable -->
+    <div style="height: 300px;padding-bottom:30px;">
+        
+        <!--loading spinner start... style=Brand Medium (blue dots)-->
+        <aura:if isTrue="{!v.Spinner}">
+            <div style="text-align: center;font-size: 1rem;margin:100px;"></div>
+                <div aura:id="spinnerId" class="slds-spinner_container">
+                <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                    <span class="slds-assistive-text">Loading</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div>
+        </aura:if>
+        <!-- Loading spinner end--> 
+        
+        
+        <h1>Selected Rows: {! v.selectedRowsCount }</h1>
+        <lightning:datatable
+            aura:id="beachTable"
+            columns="{! v.columns }"
+            data="{! v.data }"
+            keyField="id"
+            maxRowSelection="{! v.maxRowSelection }"
+            selectedRows="{!v.lstpreSelectedIds}"
+            onrowselection="{! c.updateSelectedText }"/>
+    </div>
+</aura:component>

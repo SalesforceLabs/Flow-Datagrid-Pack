@@ -1,0 +1,52 @@
+<aura:component access="global" implements="lightning:availableForFlowScreens" controller="GilmoreLabs_FlowTileGridController">
+    <aura:attribute name="lstInput" type="String[]"/>
+    <aura:attribute name="preSelectedItems" type="String[]"/>
+    <aura:attribute name="tileSize" type="String" default="medium"/>
+    <aura:attribute name="multiSelection" type="Boolean" default="false"/>
+    <aura:attribute name="lstSelectedItems" type="String[]"/>
+    <aura:attribute name="firstSelectedItem" type="String"/>
+	<aura:attribute name="Spinner" type="boolean" default="true"/>    
+    <aura:attribute name="tileItems" type="Task[]" />
+    <aura:attribute name="idRand" type="String" />
+    
+    <!-- handlers-->
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    
+    <fieldset class="slds-form-element">
+        
+        <!--loading spinner start... style=Brand Medium (blue dots)-->
+        <aura:if isTrue="{!v.Spinner}">
+            <div style="text-align: center;font-size: 1rem;margin:100px;"></div>
+                <div aura:id="spinnerId" class="slds-spinner_container">
+                <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                    <span class="slds-assistive-text">Loading</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div>
+        </aura:if>
+        <!-- Loading spinner end--> 
+        
+        
+        <div class="slds-form-element__control" style="text-align:center;">
+            
+            <aura:iteration items="{!v.tileItems}" var="curItem">
+                
+                	<div class="{!'slds-visual-picker slds-visual-picker_' + v.tileSize}" style="display:inline-block;vertical-align:top;margin-left:1rem;margin-bottom:1rem;">
+                    <input type="{!v.multiSelection ? 'checkbox' : 'radio'}" id="{!'visual-picker-' + curItem.CallDurationInSeconds + v.idRand}" value="{!'visual-picker-' + curItem.CallDurationInSeconds}" name="{!v.idRand}" checked="{!curItem.checked}" />
+                    <label for="{!'visual-picker-' + curItem.CallDurationInSeconds + v.idRand}">
+                        <span class="slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center" data-index="{!curItem.CallObject}" onclick="{!c.handleSelection}">
+                            <span style="padding-left:6px;padding-right:6px;">
+                                <aura:unescapedHtml value="{!curItem.Subject}" />
+                            </span>
+                        </span>
+                        <span class="slds-icon_container slds-visual-picker__text-check">
+                            <lightning:icon iconName="utility:check" variant="inverse" size="x-small" alternativeText="Approved" />
+                        </span>
+                    </label>
+                </div>
+                
+            </aura:iteration>
+        </div>
+    </fieldset>
+</aura:component>

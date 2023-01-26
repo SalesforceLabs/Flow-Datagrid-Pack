@@ -1,0 +1,23 @@
+.THIS .map
+{
+  padding: 15px;
+}
+
+.THIS .beachlist
+{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  max-height:430px;
+  overflow-y:scroll;
+}
+
+@media only screen and (min-width: 750px){
+    .THIS .map {
+        width: 70%;
+        float: left;
+    }
+    .THIS .beachlist {
+        width: 30%;
+        float: left;
+    }
+}

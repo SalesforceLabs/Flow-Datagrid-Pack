@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION">
+    <aura:attribute name="obj" Type="Object"/>
+    <aura:attribute name="isselected" Type="Boolean"/>
+</aura:event>

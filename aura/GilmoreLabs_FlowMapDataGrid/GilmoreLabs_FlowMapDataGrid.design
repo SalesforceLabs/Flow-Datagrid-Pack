@@ -1,0 +1,17 @@
+<design:component label="Datagrid Pack - Map">
+   <design:attribute name="lstIds" label="01: ID List" description="A text array containing the IDs of the records you would like to display in the table." required="true" />
+   <design:attribute name="strObjectName" label="02: Object API Name" description="The Object API name being displaying in the table" required="true"/>
+    
+    <design:attribute name="strTitleField" label="03: Title Field"  required="true" description="API name of title field"/>
+    <design:attribute name="strLatField" label="04: Latitude Field"  required="true" description="API name of latitude field (string or decimal)"/>
+    <design:attribute name="strLngField" label="05: Longitude Field"  required="true" description="API name of longitude field (string or decimal)"/>
+    <design:attribute name="maxRowSelection" label="06: Maximum Select Rows" description="The maximum number of rows the user can select from the table. For single selection, set to 1. For unlimited, set to -1." required="true"/>
+    
+    <design:attribute name="strDescription" label="07: Description HTML Template" description="The description formula to be placed under the title on the map. Use {fieldName} for merge fields" />
+    
+    
+    <design:attribute name="lstpreSelectedIds" label="08: Pre-Selected Rows" description="A text array containing the IDs of the records you would like pre-selected in the table" />
+   <design:attribute name="lstSelectedIds" label="09: Selected Ids" description="The records selected by the user can be saved to an output array of Ids"/>
+   <design:attribute name="firstSelectedId" label="10: First Selected Id" description="The first record selected by the user can be saved to an output text variable (Useful if only allowing a single selection)"/>
+    
+</design:component>
